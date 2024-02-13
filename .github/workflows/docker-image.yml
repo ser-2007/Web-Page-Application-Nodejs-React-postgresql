@@ -7,12 +7,9 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build /ansible-project/nodejs --file Dockerfile --tag ser-image:$(date +%s)
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file ansible-project/nodejs/Dockerfile --tag ser-image:$(bash -c 'date +%s')
